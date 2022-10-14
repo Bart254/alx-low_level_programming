@@ -1,8 +1,8 @@
 #include <stdio.h>
-/*
-*prints encased words
-*main - Entry point
-*Return- always zeo is success
+/**
+* main - Entry poin
+* prints encased words
+* Return: Always 0 (Success)
 */
 int main(void)
 {
