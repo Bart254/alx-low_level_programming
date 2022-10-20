@@ -1,6 +1,6 @@
 # include "main.h"
 /**
-* print_alphabet - Entry point
+* print_alphabet_x10 - Entry point
 * prints 10 rows of alphabet
 * Return: void(nothing)
 */
