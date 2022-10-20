@@ -28,6 +28,7 @@ void times_table(void)
 	{
 	_putchar(',');
 	_putchar(' ');
+	if (x * (y + 1) < 10)
 	_putchar(' ');
 	}
 	}
