@@ -1,0 +1,10 @@
+/**
+* print_last_digit - Prints last digit of a number
+* @digit: the argument passed
+* Return: The last digit
+*/
+int print_last_digit(int digit)
+{
+	digit = digit % 10;
+	return (digit);
+}
