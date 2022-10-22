@@ -1,13 +1,14 @@
 #include "main.h"
 /**
-* print_diagonal - Prints a diagonal line
-*@n: number of times it is printed
+* print_diagonal - It prints a diagonal
+* @n: dictates number of diagonals printed
 */
 void print_diagonal(int n)
 {
-	int dash, ndash;
+	int dashes, num_of_dashes;
 
-	dash = 0;
+	dashes = 0;
+	num_of_dashes = 0;
 
 	if (n <= 0)
 	{
@@ -15,15 +16,16 @@ void print_diagonal(int n)
 	}
 	else
 	{
-	for ( ; n > 0; n--)
+	for ( ; n > 0 ; n--)
 	{
-	_putchar('\\');
-	_putchar('\n');
-	dash++;
-	for (ndash = dash; ndash > 0; ndash--)
+	for ( ; dashes > 0; dashes--)
 	{
 	_putchar(' ');
 	}
+	_putchar('\\');
+	_putchar('\n');
+	++num_of_dashes;
+	dashes = num_of_dashes;
 	}
 	}
 }
