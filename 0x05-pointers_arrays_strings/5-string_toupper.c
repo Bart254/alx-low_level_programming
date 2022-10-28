@@ -14,7 +14,6 @@ char *string_toupper(char *s)
 		if (s[n] > 96 && s[n] < 123)
 			s[n] = s[n] - 32;
 	}
-	_putchar('\n');
 
 	return (s);
 }
