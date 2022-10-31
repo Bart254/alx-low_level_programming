@@ -1,7 +1,3 @@
-/**
- * main - Prints a quote
- * Return: 1(Successful)
- */
 #include <unistd.h>
 
 /**
@@ -16,6 +12,12 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
+/**
+ * main - Prints a quote
+ * Return: 1(Successful)
+ */
+
+
 int main(void)
 {
 	char *quote = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
@@ -25,7 +27,7 @@ int main(void)
 		_putchar(*quote);
 		quote++;
 	}
-	
+
 	_putchar('\n');
 	return (1);
 }
