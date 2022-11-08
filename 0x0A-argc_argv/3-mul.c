@@ -5,6 +5,7 @@
  * main - prints product of two arguments
  * @argc: argument counter
  * @argv: argument
+ * Return: 1(less than 2 args), 0(successful)
  */
 int main(int argc, char *argv[])
 {
