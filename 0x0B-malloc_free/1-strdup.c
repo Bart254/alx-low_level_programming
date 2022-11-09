@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * _strdup- duplicates a string
@@ -7,5 +8,10 @@
  */
 char *_strdup(char *str)
 {
-	return (strdup(str));
+	char *dup;
+
+	dup = malloc(sizeof(str));
+
+	dup = strdup(str);
+	return (dup);
 }
