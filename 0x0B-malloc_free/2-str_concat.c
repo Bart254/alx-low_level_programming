@@ -17,7 +17,7 @@ char *str_concat(char *s1, char *s2)
 
 	bytes = (strlen(s1) + strlen(s2) + 1);
 
-	s3 = malloc(bytes * sizeof(char));
+	s3 = (char *) malloc(bytes * sizeof(char));
 
 	for (a = 0; a < strlen(s1); a++)
 		s3[a] = s1[a];
