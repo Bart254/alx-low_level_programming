@@ -1,7 +1,5 @@
-#ifndef STDLIB_H
-#define STDLIB_H
-int abs(int n);
+#ifndef FUNCTION
+#define FUNCTION ABS
+#define ABS(x) ((x < 0 ? 0 - x : x))
 
-#define ABS(x) (abs(x))
 #endif
-
