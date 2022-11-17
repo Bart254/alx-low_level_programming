@@ -6,14 +6,14 @@
  */
 int main(void)
 {
-	long int a, b, c;
+	float a, b, c;
 
 	int n = 96;
 
 	a = 1;
 	b = 2;
 
-	printf("%ld, %ld, ", a, b);
+	printf("%.0f, %.0f, ", a, b);
 
 	while (n > 0)
 	{
@@ -21,9 +21,9 @@ int main(void)
 		a = b;
 		b = c;
 		if (n == 1)
-			printf("%ld\n", c);
+			printf("%.0f\n", c);
 		else
-			printf("%ld, ", c);
+			printf("%.0f, ", c);
 		n--;
 	}
 
