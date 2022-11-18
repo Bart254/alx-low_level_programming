@@ -1,22 +1,18 @@
 #include "main.h"
+#include <string.h>
+
 /**
  * print_rev - Prints the reverse of words
  * @s: The string supplied
  */
 void rev_string(char *s)
 {
-	int i, b;
+	int e = strlen(s) - 1;
 
-	b = -1;
-
-	for (i = 0; s[i] != '\0'; i++)
+	while (e >= 0)
 	{
-	b++;
+		_putchar(*(s + e));
+		e--;
 	}
-
-	for ( ; b >= 0; b--)
-	{
-	_putchar(s[b]);
-	}
-	_putchar('\n');
+	
 }
