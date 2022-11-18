@@ -1,4 +1,5 @@
 #include <string.h>
+
 /**
  * _strcpy - copies strings
  * @dest: destination
@@ -7,7 +8,13 @@
  */
 char *_strcpy(char *dest, char *src)
 {
-	strcpy(dest, src);
+	int unsigned e = 0;
+
+	while (e <= strlen(src))
+	{
+		*(dest + e) = *(src + e);
+		e++;
+	}
 
 	return (dest);
 }
