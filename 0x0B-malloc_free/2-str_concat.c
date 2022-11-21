@@ -9,22 +9,33 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int bytes;
-
-	unsigned long a, b;
-
+	unsigned int e1, e2,ls1, ls2;
 	char *s3;
 
-	bytes = (strlen(s1) + strlen(s2) + 1);
-
-	s3 = (char *) malloc(bytes * sizeof(char));
-
-	for (a = 0; a < strlen(s1); a++)
-		s3[a] = s1[a];
-	for (b = 0; b < strlen(s2); b++)
+	if (s1 == NULL)
+		ls1 = 1;
+	else
+		ls1 = strlen(s1);
+	if (s2 == NULL)
+		ls2 = 1;
+	else
+		ls2 = strlen(s2);
+	s3 = malloc((ls1 + ls2 + 1) * sizeof(char));
+	if (s3 == NULL)
+		return (NULL);
+	for (e1 = 0; e1 < ls1; e1++)
 	{
-		s3[a] = s2[b];
-		a++;
+		if (s1 == NULL)
+			s3[e1] = ""[0];
+		else
+			s3[e1] = s1[e1];
+	}
+	for (e2 = 0; e2 < ls2; e1++, e2++)
+	{
+		if (s2 == NULL)
+			s3[e1] = ""[0];
+		else
+			s3[e1] = s2[e2];
 	}
 	return (s3);
 }
