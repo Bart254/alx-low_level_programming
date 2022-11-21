@@ -9,7 +9,7 @@
 void print_all(const char *const format, ...)
 {
 	char *string;
-	int i;
+	int i = 0;
 	const char *const s = format;
 	va_list ap;
 	int e = 0;
@@ -38,10 +38,10 @@ void print_all(const char *const format, ...)
 				printf("%s", string);
 				break;
 			default:
-				i = 0;
+				i = 1;
 				break;
 		}
-		if ((i != 0) && (*(s + e + 1) != '\0'))
+		if ((i == 0) && (*(s + e + 1) != '\0'))
 			printf(", ");
 		e++;
 	}
