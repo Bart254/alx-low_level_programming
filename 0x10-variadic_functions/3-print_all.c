@@ -17,7 +17,7 @@ void print_all(const char *const format, ...)
 	va_start(ap, format);
 	while (*(format + e) != '\0')
 	{
-		switch (*(format + e))
+		switch (*(s + e))
 		{
 			case ('f'):
 				printf("%f", va_arg(ap, double));
@@ -43,6 +43,7 @@ void print_all(const char *const format, ...)
 		}
 		if ((i == 0) && (*(s + e + 1) != '\0'))
 			printf(", ");
+		i = 0;
 		e++;
 	}
 	va_end(ap);
