@@ -21,18 +21,14 @@ void print_all(const char *const format, ...)
 		{
 			case ('f'):
 				printf("%f", va_arg(ap, double));
-				i = 1;
 				break;
 			case ('i'):
 				printf("%d", va_arg(ap, int));
-				i = 1;
 				break;
 			case ('c'):
 				printf("%c", va_arg(ap, int));
-				i = 1;
 				break;
 			case ('s'):
-				i = 1;
 				string = va_arg(ap, char*);
 				if (string == NULL)
 					printf("(nil)");
@@ -43,7 +39,7 @@ void print_all(const char *const format, ...)
 				i = 0;
 				break;
 		}
-		if ((i == 1) && (*(s + e + 1) != '\0')) 
+		if ((i != 0) && (*(s + e + 1) != '\0'))
 			printf(", ");
 		e++;
 	}
