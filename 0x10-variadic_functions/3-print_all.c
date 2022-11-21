@@ -9,6 +9,7 @@
 void print_all(const char *const format, ...)
 {
 	char *string;
+	int i;
 	const char *const s = format;
 	va_list ap;
 	int e = 0;
@@ -20,14 +21,18 @@ void print_all(const char *const format, ...)
 		{
 			case ('f'):
 				printf("%f", va_arg(ap, double));
+				i = 1;
 				break;
 			case ('i'):
 				printf("%d", va_arg(ap, int));
+				i = 1;
 				break;
 			case ('c'):
 				printf("%c", va_arg(ap, int));
+				i = 1;
 				break;
 			case ('s'):
+				i = 1;
 				string = va_arg(ap, char*);
 				if (string == NULL)
 					printf("(nil)");
@@ -35,13 +40,11 @@ void print_all(const char *const format, ...)
 					printf("%s", string);
 				break;
 			default:
+				i = 0;
 				break;
 		}
-		if (*(s + e) == 'f' || *(s + e) == 'i' || *(s + e) == 'c' || *(s + e) == 's')
-		{
-			if (*(format + e + 1) != '\0')
-				printf(", ");
-		}
+		if ((i == 1) && (*(s + e + 1) != '\0')) 
+			printf(", ");
 		e++;
 	}
 	va_end(ap);
