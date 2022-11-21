@@ -8,6 +8,7 @@
  */
 void print_all(const char *const format, ...)
 {
+	char *string;
 	const char *const s = format;
 	va_list ap;
 	int e = 0;
@@ -27,7 +28,11 @@ void print_all(const char *const format, ...)
 				printf("%c", va_arg(ap, int));
 				break;
 			case ('s'):
-				printf("%s", va_arg(ap, char*));
+				string = va_arg(ap, char*);
+				if (string == NULL)
+					printf("(nil)");
+				else
+					printf("%s", string);
 				break;
 			default:
 				break;
