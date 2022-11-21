@@ -8,6 +8,7 @@
  */
 void print_all(const char *const format, ...)
 {
+	const char *const s = format;
 	va_list ap;
 	int e = 0;
 
@@ -31,7 +32,7 @@ void print_all(const char *const format, ...)
 			default:
 				break;
 		}
-		if (*(format + e) == 'f' || *(format + e) == 'i' || *(format + e) == 'c' || *(format + e) == 's')
+		if (*(s + e) == 'f' || *(s + e) == 'i' || *(s + e) == 'c' || *(s + e) == 's')
 		{
 			if (*(format + e + 1) != '\0')
 				printf(", ");
