@@ -8,6 +8,7 @@
 void print_number(int n)
 {
 	int reverse;
+	char neg;
 
 	if (n == 0)
 		_putchar(0 + '0');
@@ -19,7 +20,8 @@ void print_number(int n)
 		/* prints the reversed number a digit at a time from the last digit */
 		if (reverse < 0)
 		{
-			_putchar('-');
+			neg = '-';
+			_putchar(neg);
 			reverse = 0 - reverse;
 		}
 		while (reverse > 0)
