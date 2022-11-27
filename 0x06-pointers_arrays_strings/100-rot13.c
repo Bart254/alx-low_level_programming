@@ -18,10 +18,11 @@ char *rot13(char *s)
 		for (; (*p >= 'a' && *p <= 'z') || (*p >= 'A' && *p <= 'Z');)
 		{
 			if ((*p > 'M' && *p < 'a') || (*p > 'm'))
+			{
 				*p -= 13;
-			else
-				*p += 13;
-			break;
+				break;
+			}
+			*p += 13;
 		}
 	}
 	return (s);
