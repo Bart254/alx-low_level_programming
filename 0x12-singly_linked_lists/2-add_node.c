@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * add_note - Adds a note element
+ * add_node - Adds a note element
  * @head: pointer to head pointer
  * @str: string to be assigned
  *
@@ -15,7 +15,8 @@ list_t *add_node(list_t **head, const char *str)
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
-		return(NULL);
+		return (NULL);
+	new->str = malloc(sizeof(str));
 	new->str = strdup(str);
 	new->len = strlen(new->str);
 	new->next = *head;
