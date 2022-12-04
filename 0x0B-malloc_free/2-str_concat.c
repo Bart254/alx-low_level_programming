@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * str_concat - concatenates strings
@@ -9,27 +8,41 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int e1, e2,ls1, ls2;
+	int ls1 = 0, ls2 = 0;
+	int i = 0;
+	int es1 = 0, es2 = 0;
 	char *s3;
 
-	ls1 = strlen(s1);
-	ls2 = strlen(s2);
+	while (s1 != NULL && *(s1 + es1))
+	{
+		ls1++;
+		es1++;
+	}
+	while (s2 != NULL && *(s2 + es2))
+	{
+		ls2++;
+		es2++;
+	}
 	s3 = malloc((ls1 + ls2 + 1) * sizeof(char));
 	if (s3 == NULL)
 		return (NULL);
-	for (e1 = 0; e1 < ls1; e1++)
+	if (s1 != NULL)
 	{
-		if (s1 == NULL)
-			break;
-		else
-			s3[e1] = s1[e1];
+		while (*s1)
+		{
+			s3[i] = *s1;
+			i++;
+			s1++;
+		}
 	}
-	for (e2 = 0; e2 < ls2; e1++, e2++)
+	if (s2 != NULL)
 	{
-		if (s2 == NULL)
-			break;
-		else
-			s3[e1] = s2[e2];
+		while (*s2)
+		{
+			s3[i] = *s2;
+			i++;
+			s2++;
+		}
 	}
 	return (s3);
 }

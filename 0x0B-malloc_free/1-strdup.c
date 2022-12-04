@@ -9,19 +9,22 @@
 char *_strdup(char *str)
 {
 	char *dup;
-	int i, size;
+	int i = 0, e,  size = 0;
 	/* checks if str is null */
 	if (str == NULL)
 		return (NULL);
+	while (*(str + i))
+	{
+		size++;
+		i++;
+	}
 
-	size = strlen(str) + 1;
-	dup = malloc(size * sizeof(char));
-
+	dup = malloc((size + 1) * sizeof(char));
 	/* checks if malloc fails*/
 	if (dup == NULL)
 		return (NULL);
 	/* fills the new memory with characters in str */
-	for (i = 0; i < size; i++)
-		dup[i] = str[i];
+	for (e = 0; e < size; e++)
+		dup[e] = str[e];
 	return (dup);
 }
