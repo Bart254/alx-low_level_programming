@@ -4,6 +4,7 @@
 /**
  * malloc_checked - assigns b bytes
  * @b: number of bytes
+ * Return: void pointer
  */
 void *malloc_checked(unsigned int b)
 {
