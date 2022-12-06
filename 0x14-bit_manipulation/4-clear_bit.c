@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * set_bit - sets bit 1 at index
+ * clear_bit - sets bit 1 at index
  * @n: pointer to number
  * @index: index
  *
