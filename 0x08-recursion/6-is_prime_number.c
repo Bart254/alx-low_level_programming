@@ -6,7 +6,7 @@
  */
 int _checker(int n, int d)
 {
-	if (n == 1)
+	if (n == 1 || n < 0)
 		return (0);
 	if (d > (n / 2))
 		return (1);
@@ -22,8 +22,6 @@ int _checker(int n, int d)
  */
 int is_prime_number(int n)
 {
-	if (n < 0)
-		n = 0 - n;
 	return (_checker(n, 2));
 }
 
