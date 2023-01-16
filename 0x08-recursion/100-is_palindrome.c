@@ -14,7 +14,7 @@ int _checker(char *str, int e)
 		return (1);
 	else if (*str != str[e])
 		return (0);
-	return(_checker(str + 1, e - 2));
+	return (_checker(str + 1, e - 2));
 }
 
 /**
