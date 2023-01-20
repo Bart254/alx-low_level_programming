@@ -1,3 +1,5 @@
+#include "lists.h"
+
 /**
  * delete_dnodeint_at_index - deletes a node at index
  * @head: pointer to head
