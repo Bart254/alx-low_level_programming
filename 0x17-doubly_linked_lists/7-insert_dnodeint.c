@@ -8,7 +8,7 @@
  * @n: element of a node
  * Return: addess of the new node
  */
-dlistint_t *insert(dlistint_t **h, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int check = 0;
 	dlistint_t *ptr = *h, *new;
