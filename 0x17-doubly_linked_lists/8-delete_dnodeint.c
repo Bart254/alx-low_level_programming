@@ -6,7 +6,7 @@
  * @index: index
  * Return: 1 if successful -1 if not
  */
-int dlistint_t delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	unsigned int check = 0;
 	dlistint_t *ptr1, *ptr2, *ptr3;
