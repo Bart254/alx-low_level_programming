@@ -1,2 +1,0 @@
-Even more singly linked lists
-
