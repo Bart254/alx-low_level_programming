@@ -1,0 +1,1 @@
+An introduction to data structures. As aforementioned, most repositories are beginner friendly. This is an intro repo to linked lists in C. Tasks such as creating, traversing and deleting items are covered in detail.
