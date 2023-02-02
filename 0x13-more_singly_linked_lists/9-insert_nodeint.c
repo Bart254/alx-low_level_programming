@@ -26,7 +26,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	if (idx - tail_idx == 1)
 		return (add_nodeint_end2(&tail, n));
-	else if (idx - tail_idx > 1)
+	else if (idx > tail_idx)
 		return (NULL);
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
@@ -47,7 +47,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 #include <stdlib.h>
 
 /**
- * add_nodeint - adds node at the beginning of a list
+ * add_nodeint1 - adds node at the beginning of a list
  * @head: pointer to head
  * @n: element to be added to new node
  * Return: address of new node
@@ -71,7 +71,7 @@ listint_t *add_nodeint1(listint_t **head, const int n)
 #include <stdlib.h>
 
 /**
- * add_nodeint_end - adds a node at the end of a list
+ * add_nodeint_end2 - adds a node at the end of a list
  * @head: pointer to head
  * @n: element to be added to node
  * Return: address of the new node or NULL if failed
