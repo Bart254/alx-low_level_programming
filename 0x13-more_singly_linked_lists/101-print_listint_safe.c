@@ -5,7 +5,7 @@
 /**
  * print_listint_safe - prints a list safely
  * @head: head node
- * Returns number of nodes
+ * Return: number of nodes
  */
 size_t print_listint_safe(listint_t *head)
 {
