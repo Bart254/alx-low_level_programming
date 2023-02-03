@@ -7,12 +7,10 @@
  * @head: head node
  * Return: number of nodes
  */
-size_t print_listint_safe(listint_t *head)
+size_t print_listint_safe(const listint_t *head)
 {
 	int n = 0;
 
-	if (head == NULL)
-		exit(98);
 	while (head)
 	{
 		if (printf("[%p] %d\n", (void *)head, head->n) < 0)
