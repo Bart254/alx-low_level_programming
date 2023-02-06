@@ -10,7 +10,7 @@
  */
 char *set_uint_to_bin(unsigned long int n)
 {
-	unsigned long int e, l, cp;
+	unsigned long int e, l;
 	char *ptr, character;
 
 	ptr = malloc(64 * sizeof(char));
