@@ -10,15 +10,15 @@
  */
 char *set_uint_to_bin(unsigned long int n)
 {
-	unsigned long int e, l, cp;
+	unsigned long int e, l;
 	char *ptr, character;
 
-	ptr = malloc(64 * sizeof(char));
+	ptr = malloc(65 * sizeof(char));
 	if (ptr == NULL)
 		return (ptr);
 	for (e = 0; e < 64; e++)
 	{
-		if (n)
+		if (n != 0)
 		{
 			ptr[e] = n % 2 + '0';
 			n /= 2;
@@ -26,6 +26,7 @@ char *set_uint_to_bin(unsigned long int n)
 		else
 			ptr[e] = '0';
 	}
+	ptr[e] = '\0';
 	for (l = 63, e = 0; l > e; e++, l--)
 	{
 		character = ptr[e];
@@ -83,6 +84,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 	}
 	ptr[l] = '1';
 	*n = binary_to_uint(ptr);
+	free(ptr);
 	return (1);
 }
 

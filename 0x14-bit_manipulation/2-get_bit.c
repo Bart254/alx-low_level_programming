@@ -42,7 +42,7 @@ char *uint_to_bin(unsigned long int n)
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	char *ptr;
+	char *ptr, bit;
 	unsigned int l;
 
 	ptr = uint_to_bin(n);
@@ -56,6 +56,8 @@ int get_bit(unsigned long int n, unsigned int index)
 		l--;
 		index--;
 	}
-	return (ptr[l] - '0');
+	bit = ptr[l] - '0';
+	free(ptr);
+	return (bit);
 }
 

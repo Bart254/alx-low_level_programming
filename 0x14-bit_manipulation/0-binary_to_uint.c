@@ -8,23 +8,17 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int num, size, e, l, ls;
-	char *rev;
+	unsigned int num = 0, ls;
+	int l;
 
 	if (!b)
 		return (0);
-	size = strlen(b);
-	rev = malloc((size + 1) * sizeof(char));
-	if (rev == NULL)
-		return (0);
-	for (e = 0, l = size - 1; e < size; e++, l--)
-		rev[e] = b[l];
-	rev[e] = '\0';
-	for (e = 0, ls = 0; rev[e]; e++, ls++)
+	l = strlen(b) - 1;
+	for (ls = 0; l >= 0; ls++, l--)
 	{
-		if (rev[e] != '1' && rev[e] != '0')
+		if (b[l] != '1' && b[l] != '0')
 		return (0);
-		if (rev[e] == '1')
+		if (b[l] == '1')
 		num += (1 << ls);
 	}
 	return (num);
