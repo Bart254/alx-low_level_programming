@@ -1,63 +1,5 @@
 #include "main.h"
-#include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-
-/**
- * set_uint_to_bin - converts unsigned int to binary
- * @n: number to be converted to bin
- * Return: pointer containing the bits
- */
-char *set_uint_to_bin(unsigned long int n)
-{
-	unsigned long int e, l;
-	char *ptr, character;
-
-	ptr = malloc(65 * sizeof(char));
-	if (ptr == NULL)
-		return (ptr);
-	for (e = 0; e < 64; e++)
-	{
-		if (n != 0)
-		{
-			ptr[e] = n % 2 + '0';
-			n /= 2;
-		}
-		else
-			ptr[e] = '0';
-	}
-	ptr[e] = '\0';
-	for (l = 63, e = 0; l > e; e++, l--)
-	{
-		character = ptr[e];
-		ptr[e] = ptr[l];
-		ptr[l] = character;
-	}
-	return (ptr);
-}
-
-/**
- * binary_to_uint - converts binary to integers
- * @b: string with binary digits
- * Return: the unsigned intege
- */
-unsigned int binary_to_uint(const char *b)
-{
-	unsigned int num, ls;
-	int l;
-
-	if (!b)
-		return (0);
-	l = strlen(b) - 1;
-	for (num = 0, ls = 0; l >= 0; --l, ls++)
-	{
-		if (b[l] != '1' && b[l] != '0')
-		return (0);
-		if (b[l] == '1')
-		num += (1 << ls);
-	}
-	return (num);
-}
 
 /**
  * set_bit - sets 1 to an index
@@ -70,21 +12,30 @@ unsigned int binary_to_uint(const char *b)
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	char *ptr;
-	unsigned int l;
+	unsigned long int new_n, cp = *n;
+	char bits[65];
+	short int l, e, ls;
 
-	ptr = set_uint_to_bin(*n);
-	if (ptr == NULL)
-		return (-1);
-	l = strlen(ptr) - 1;
-	while (index)
+	for (l = 63; l >= 0; l--)
 	{
-		l--;
-		index--;
+		if (cp)
+		{
+			bits[l] = cp % 2 + '0';
+			cp /= 2;
+		}
+		else
+			bits[l] = '0';
 	}
-	ptr[l] = '1';
-	*n = binary_to_uint(ptr);
-	free(ptr);
+	if (index > 63)
+		return (-1);
+	e = 63 - index;
+	bits[e] = '1';
+	for (ls = 0, l = 63, new_n = 0; l >= 0; l--, ls++)
+	{
+		if (bits[l] == '1')
+			new_n += (1 << ls);
+	}
+	*n = new_n;
 	return (1);
 }
 
