@@ -3,38 +3,6 @@
 #include <string.h>
 
 /**
- * uint_to_bin - converts unsigned int to binary
- * @n: number to be converted to bin
- * Return: pointer containing the bits
- */
-char *uint_to_bin(unsigned long int n)
-{
-	unsigned long int size, e, l, cp;
-	char *ptr, character;
-
-	if (n == 0)
-		size = 1;
-	else
-	{
-		for (cp = n, size = 0; cp > 0; cp /= 2)
-			size++;
-	}
-	ptr = malloc((size + 1) * sizeof(char));
-	if (ptr == NULL)
-		return (ptr);
-	for (e = 0; e < size; e++, n /= 2)
-		ptr[e] = n % 2 + '0';
-	ptr[e] = '\0';
-	for (l = size - 1, e = 0; l > e; e++, l--)
-	{
-		character = ptr[e];
-		ptr[e] = ptr[l];
-		ptr[l] = character;
-	}
-	return (ptr);
-}
-
-/**
  * get_bit - recovers the bit in a specified index
  * @n: number to be converted to bit
  * @index: index from where value is extracted
@@ -42,22 +10,22 @@ char *uint_to_bin(unsigned long int n)
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	char *ptr, bit;
-	unsigned int l;
+	char bits[65];
+	short int l, e;
 
-	ptr = uint_to_bin(n);
-	if (ptr == NULL)
-		return (-1);
-	if (index >= strlen(ptr))
-		return (-1);
-	l = strlen(ptr) - 1;
-	while (index > 0)
+	for (l = 63; l >= 0; l--)
 	{
-		l--;
-		index--;
+		if (n != 0)
+		{
+			bits[l] = n % 2 + '0';
+			n /= 2;
+		}
+		else
+			bits[l] = '0';
 	}
-	bit = ptr[l] - '0';
-	free(ptr);
-	return (bit);
+	if (index > 63)
+		return (-1);
+	e = 63 - index;
+	return (bits[e] - '0');
 }
 
