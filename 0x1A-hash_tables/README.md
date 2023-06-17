@@ -1,0 +1,1 @@
+These are a series of projects on hash tables. Included codes start from creating a hash table, using a hash function to adding elements to a hash table. Every file deals with a specific part and can help in understanding how the function is written and implemented.
