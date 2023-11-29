@@ -36,6 +36,6 @@ def island_perimeter(grid):
                 if grid[r - 1][c] == 1 and grid[r + 1][c] == 1:
                     if grid[r][c + 1] == 1 and grid[r][c - 1] == 1:
                         return 0
-    if water == False:
+    if water is False:
         return 0
     return 2 * (length + width)
