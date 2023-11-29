@@ -11,6 +11,7 @@ def island_perimeter(grid):
     rows, columns = len(grid), len(grid[0])
     length, col_len = 0, 0
     width, row_wid = 0, 0
+    water = False
     for r in range(rows):
         for c in range(columns):
             if grid[r][c] == 1:
@@ -28,9 +29,13 @@ def island_perimeter(grid):
                         width += 1
                         row_wid = r
                 else:
-                    return
+                    return 0
+            if grid[r][c] == 0:
+                water = True
             if grid[r][c] == 0 and r < rows - 1 and c < columns - 1:
                 if grid[r - 1][c] == 1 and grid[r + 1][c] == 1:
                     if grid[r][c + 1] == 1 and grid[r][c - 1] == 1:
-                        return
+                        return 0
+    if water == False:
+        return 0
     return 2 * (length + width)
