@@ -6,12 +6,12 @@
  * @low: the lowest index
  * @high: the highest index
  */
-void search_array(size_t low, size_t high)
+void search_array(int low, int high)
 {
 	printf("Searching in array: ");
 	while (low <= high)
 	{
-		printf("%lu", low);
+		printf("%d", low);
 		if (low == high)
 			printf("\n");
 		else
@@ -33,7 +33,7 @@ void search_array(size_t low, size_t high)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t high, low, mid;
+	int high, low, mid;
 
 	if (!array)
 		return (-1);
